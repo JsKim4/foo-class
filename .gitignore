@@ -1,0 +1,4 @@
+/cpu-bound-application/.idea/
+/cpu-bound-application/cpu.iml
+/cpu-bound-application/target/
+!/cpu-bound-application/target/cpu-0.0.1-SNAPSHOT.jar

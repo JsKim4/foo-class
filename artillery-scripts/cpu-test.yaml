@@ -1,0 +1,41 @@
+config:
+  target: "https://shopping.service.staging"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      name: Warm up
+    - duration: 120
+      arrivalRate: 5
+      rampTo: 50
+      name: Ramp up load
+    - duration: 600
+      arrivalRate: 50
+      name: Sustained load
+  payload:
+    # Load search keywords from an external CSV file and make them available
+    # to virtual user scenarios as variable "keywords":
+    path: "keywords.csv"
+    fields:
+      - "keywords"
+scenarios:
+  # We define one scenario:
+  - name: "Search and buy"
+    flow:
+      - post:
+          url: "/search"
+          body: "kw={{ keywords }}"
+          # The endpoint responds with JSON, which we parse and extract a field from
+          # to use in the next request:
+          capture:
+            json: "$.results[0].id"
+            as: "id"
+      # Get the details of the product:
+      - get:
+          url: "/product/{{ id }}/details"
+      # Pause for 3 seconds:
+      - think: 3
+      # Add product to cart:
+      - post:
+          url: "/cart"
+          json:
+            productId: "{{ id }}"
