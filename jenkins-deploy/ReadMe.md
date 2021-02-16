@@ -45,7 +45,7 @@ SSH Servers에 해당 개인키를 복호화 할수 있는 서버를 적어준�
 - username : 호스트에서 공개키에 접근 가능한 유저 이름
 - Remote Directory : 원경 폴더 위치 user가 접근 가능한 디렉토리
 
------- 젠킨스 실행 후 post build step(빌드 후 조치) => Send build artifacts over SSH 추가 
+------ 젠킨스 아이템 생성 후 post build step(빌드 후 조치) => Send build artifacts over SSH 추가 
 - Name 위에서 등록한 SSH Servers의 이름
 - Exec Command 스크립트 작성 => 
 
