@@ -14,3 +14,4 @@
 <h2>3강</h2>
 
 - [ 3-1 nginx-load-balancing ](./nginx-load-balancing)
+- [ 3-2 stress test ](./artillery-scripts2)
