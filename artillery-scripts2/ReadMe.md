@@ -25,3 +25,11 @@
 테스트 결과 문서화
 
     artillery.cmd report .\report.json
+    
+실행중인 도커 컨테이너 조회
+
+    docker ps
+    
+도커 종료
+
+    docker conatiner kill -s 15 {docker-container-name}

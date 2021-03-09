@@ -1,0 +1,12 @@
+config:
+  target: "http://service.url"
+  phases:
+    - duration: 240
+      arrivalRate: 4
+      name: Warm up
+scenarios:
+  # We define one scenario:
+  - name: "just get hash"
+    flow:
+      - get:
+          url: "/hash/123"
